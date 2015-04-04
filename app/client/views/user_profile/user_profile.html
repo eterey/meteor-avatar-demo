@@ -1,0 +1,32 @@
+<template name="UserProfile">
+    {{> AvatarPicker}}
+    {{#with currentUser}}
+      <div class="row">
+        <div class="col-md-4 text-right">
+          <a href="#" data-toggle="modal" data-target=".avatar-picker">
+              {{#if avatar}}
+                <img src="{{avatar.url}}">
+              {{else}}
+                <img src="/no_image.jpg" alt="No image!" class="img-rounded">
+              {{/if}}
+          </a>
+        </div>
+        <div class="col-md-8">
+          <form>
+            <div class="form-group">
+              <label for="profileName">Name:</label>
+              <input id="profileName" type="text" value="{{profile.name}}" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input id="username" type="text" value="{{username}}" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input id="email" type="email" value="{{emails.[0].address}}" class="form-control">
+            </div>
+          </form>
+        </div>
+      </div>
+    {{/with}}
+</template>
