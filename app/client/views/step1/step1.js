@@ -29,7 +29,7 @@ Template.Step1.events({
   },
   'change #avatar-picker-file': function (e, tmpl) {
     tmpl.find('#avatar-picker-filename').value = getFileName(e.target.value);
-    var avatarImage = e.target.files[0];
+    var avatarImage = new FS.File(e.target.files[0]);
     avatarImage.metadata = { owner: Meteor.userId() };
     Avatars.insert(avatarImage, function (err) {
       if (err) {
