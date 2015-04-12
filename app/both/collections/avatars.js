@@ -12,14 +12,12 @@ Avatars = new FS.Collection('avatars', {
   }
 });
 
-var checkPermission = function() {
-  //var userId = arguments[0];
-  //var file = arguments[1];
-  //return userId && file.metadata && file.metadata.owner === userId;
-  return true;
+var checkPermission = function(userId, file) {
+  return userId && file.metadata && file.metadata.owner === userId;
 };
 
 Avatars.allow({
+  download: function() { return true; },
   insert: checkPermission,
   update: checkPermission,
   remove: checkPermission
