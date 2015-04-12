@@ -44,7 +44,11 @@ Template.Step1.events({
 
 Template.Step1.helpers({
   avatars: function() {
-    return Avatars.find();
+    return Avatars.find({}, {
+      sort: {
+        uploadedAt: -1
+      }
+    });
   }
 });
 
