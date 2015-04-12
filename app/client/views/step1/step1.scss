@@ -6,13 +6,18 @@
     @include border-radius(0);
   }
 
-  .avatar-gallery img {
-    border: 1px solid #e3e3e3;
-    display: block;
-    margin: 0 auto 15px;
-    cursor: pointer;
-    &:hover {
-      opacity: 0.7;
+  .avatar-gallery .avatar-container {
+    height: 150px;
+    margin-bottom: 15px;
+
+    > img {
+      border: 1px solid #e3e3e3;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
 
