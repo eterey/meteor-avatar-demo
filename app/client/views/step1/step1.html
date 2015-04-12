@@ -67,7 +67,11 @@
                 </div>
                 {{#each avatars}}
                   <div class="col-md-3">
-                    <img src="{{url}}" class="img-rounded">
+                    {{#if url}}
+                      <img src="{{url}}" class="img-rounded">
+                    {{else}}
+                      {{> Loading}}
+                    {{/if}}
                   </div>
                 {{/each}}
               </div>
