@@ -14,7 +14,9 @@ var getFileName = function (path) {
 };
 
 var clear = function(tmpl) {
-  tmpl.find('input').value = '';
+  _.each(tmpl.findAll('input'), function (input) {
+    input.value = '';
+  });
 };
 
 Template.Step1.events({
@@ -22,19 +24,21 @@ Template.Step1.events({
     e.target.blur();
     tmpl.find('#avatar-picker-file').click();
   },
+  'click #avatar-picker-file': function (e, tmpl) {
+    clear(tmpl);
+  },
   'change #avatar-picker-file': function (e, tmpl) {
     tmpl.find('#avatar-picker-filename').value = getFileName(e.target.value);
     var avatarImage = e.target.files[0];
     avatarImage.metadata = { owner: Meteor.userId() };
     Avatars.insert(avatarImage, function (err) {
-      clear(tmpl);
       if (err) {
         console.log(err);
       }
     });
   },
-  'click #avatar-picker-url-btn': function (e, tmpl) {
-
+  'focus #avatar-pick-url input': function (e, tmpl) {
+    clear(tmpl);
   }
 });
 

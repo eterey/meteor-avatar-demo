@@ -8,18 +8,16 @@
             Upload an image
           </div>
           <div class="panel-body">
-            <form>
-              <div class="form-group">
-                <div class="input-group">
-                  <span class="input-group-btn">
-                    <span class="btn btn-primary btn-file">
-                      Browse <input type="file" id="avatar-picker-file">
-                    </span>
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-btn">
+                  <span class="btn btn-primary btn-file">
+                    Browse <input type="file" id="avatar-picker-file">
                   </span>
-                  <input type="text" class="form-control" readonly id="avatar-picker-filename">
-                </div>
+                </span>
+                <input type="text" class="form-control" readonly id="avatar-picker-filename">
               </div>
-            </form>
+            </div>
           </div>
         </div>  <!-- /.panel -->
       </div>
@@ -32,18 +30,22 @@
             Paste image URL
           </div>
           <div class="panel-body">
-            <form class="form-inline">
+            <form id="avatar-pick-url">
               <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-addon">
-                    <i class="fa fa-globe"></i>
+                <div class="col-md-10 no-padding">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                      <i class="fa fa-globe"></i>
+                    </div>
+                    <input type="url" class="form-control" placeholder="https://example.com/avatar.png">
                   </div>
-                  <input type="text" id="avatar-picker-url" class="form-control" placeholder="https://example.com/avatar.png">
+                </div>
+                <div class="col-md-2 no-padding">
+                  <button class="btn btn-primary" type="submit">
+                    <i class="fa fa-paper-plane"></i>
+                  </button>
                 </div>
               </div>
-              <button id="avatar-picker-url-btn" class="btn btn-primary">
-                <i class="fa fa-paper-plane"></i>
-              </button>
             </form>
           </div>
         </div>  <!-- /.panel -->
@@ -53,7 +55,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <div class="panel panel-default">
+        <div class="panel panel-default avatar-gallery">
           <div class="panel-heading">
             Or select image from gallery
           </div>
